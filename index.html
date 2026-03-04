@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
+<title>Modern Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -12,12 +12,12 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    scroll-behavior:smooth;
     font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#0d0f1a;
+    background:#0e101c;
     color:white;
 }
 
@@ -25,114 +25,96 @@ body{
 
 nav{
     position:fixed;
-    top:0;
-    width:100%;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    padding:15px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 8%;
-    background:rgba(15,18,30,0.8);
-    backdrop-filter:blur(10px);
+    background:rgba(20,22,40,0.8);
+    backdrop-filter:blur(15px);
+    border-radius:50px;
     z-index:1000;
 }
 
 .logo{
     font-weight:700;
-    font-size:22px;
+    font-size:20px;
     background:linear-gradient(90deg,#7f5af0,#2cb67d);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 nav ul{
-    display:flex;
     list-style:none;
-    gap:40px;
+    display:flex;
+    gap:35px;
 }
 
 nav ul li{
     cursor:pointer;
     position:relative;
-    transition:0.3s;
 }
 
 nav ul li:hover{
     color:#7f5af0;
 }
 
-nav ul li::after{
-    content:'';
-    position:absolute;
-    bottom:-5px;
-    left:0;
-    width:0%;
-    height:2px;
-    background:linear-gradient(90deg,#7f5af0,#2cb67d);
-    transition:0.3s;
-}
-
-nav ul li:hover::after{
-    width:100%;
-}
-
-/* ================= SECTION BASE ================= */
+/* ================= SECTIONS ================= */
 
 section{
-    min-height:100vh;
-    padding:120px 8%;
+    padding:100px 10%;
+}
+
+.section-title{
+    font-size:48px;
+    text-align:center;
+    margin-bottom:50px;
+    background:linear-gradient(90deg,#7f5af0,#2cb67d);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* ================= PRODUCTS SLIDER ================= */
+
+.slider{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+    overflow:hidden;
+}
+
+.slides{
+    display:flex;
+    transition:0.6s ease;
+}
+
+.slide{
+    min-width:100%;
     display:flex;
     flex-direction:column;
-    justify-content:center;
-}
-
-/* ================= PRODUCTS ================= */
-
-.products-container{
-    display:flex;
-    justify-content:center;
     align-items:center;
-    gap:40px;
-    flex-wrap:wrap;
 }
 
-.product-card{
-    width:300px;
-    height:380px;
-    background:rgba(255,255,255,0.03);
+.slide img{
+    width:100%;
+    max-height:400px;
+    object-fit:cover;
     border-radius:20px;
-    padding:30px;
-    backdrop-filter:blur(20px);
-    transition:0.4s;
-    border:1px solid rgba(255,255,255,0.08);
-    transform:rotate(-5deg);
 }
 
-.product-card:nth-child(2){
-    transform:rotate(0deg) scale(1.1);
-    border:1px solid #7f5af0;
-    box-shadow:0 0 25px rgba(127,90,240,0.5);
-}
-
-.product-card:nth-child(3){
-    transform:rotate(5deg);
-}
-
-.product-card:hover{
-    transform:rotate(0deg) scale(1.05);
-}
-
-.product-card h3{
-    margin-bottom:15px;
-}
-
-.product-card p{
-    font-size:14px;
+.slide p{
+    margin-top:20px;
     opacity:0.7;
+    text-align:center;
+    max-width:600px;
 }
 
 .btn{
     margin-top:20px;
-    padding:10px 20px;
+    padding:12px 25px;
     border:none;
     border-radius:30px;
     background:linear-gradient(90deg,#7f5af0,#2cb67d);
@@ -145,20 +127,44 @@ section{
     opacity:0.8;
 }
 
+/* arrows */
+
+.arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:30px;
+    cursor:pointer;
+    padding:10px;
+    background:rgba(255,255,255,0.1);
+    border-radius:50%;
+}
+
+.left{ left:10px; }
+.right{ right:10px; }
+
+/* ================= ABOUT ================= */
+
+.about{
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+    opacity:0.8;
+}
+
 /* ================= SKILLS ================= */
 
 .skills-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
 }
 
 .skill-box{
-    background:rgba(255,255,255,0.03);
+    background:rgba(255,255,255,0.05);
     padding:25px;
     border-radius:15px;
     text-align:center;
-    border:1px solid rgba(255,255,255,0.08);
     transition:0.3s;
 }
 
@@ -169,40 +175,27 @@ section{
 
 /* ================= CONTACT ================= */
 
-.contact-box{
-    max-width:500px;
+.contact-info{
+    text-align:center;
+    line-height:2;
+    opacity:0.8;
 }
 
-.contact-box input,
-.contact-box textarea{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:10px;
-    background:rgba(255,255,255,0.05);
-    color:white;
-}
+/* ================= FOOTER ================= */
 
-.contact-box button{
-    width:100%;
-}
-
-/* ================= TITLE ================= */
-
-.section-title{
-    font-size:40px;
-    margin-bottom:40px;
-    background:linear-gradient(90deg,#7f5af0,#2cb67d);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+footer{
+    text-align:center;
+    padding:30px;
+    background:#111325;
+    margin-top:60px;
+    opacity:0.6;
 }
 </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">PRISM PORTFOLIO</div>
+    <div class="logo">PRISM</div>
     <ul>
         <li onclick="scrollToSection('products')">Products</li>
         <li onclick="scrollToSection('about')">About</li>
@@ -214,43 +207,50 @@ section{
 <!-- PRODUCTS -->
 <section id="products">
     <h2 class="section-title">Products</h2>
-    <div class="products-container">
-        <div class="product-card">
-            <h3>AI System</h3>
-            <p>Advanced AI solution with predictive analytics.</p>
-            <button class="btn">Explore</button>
+
+    <div class="slider">
+        <div class="slides" id="slides">
+
+            <div class="slide">
+                <img src="https://picsum.photos/900/400?1">
+                <p>Modern AI solution for data prediction and analytics.</p>
+                <button class="btn" onclick="scrollToSection('products')">Explore</button>
+            </div>
+
+            <div class="slide">
+                <img src="https://picsum.photos/900/400?2">
+                <p>Quantum powered cloud infrastructure system.</p>
+                <button class="btn" onclick="scrollToSection('products')">Explore</button>
+            </div>
+
+            <div class="slide">
+                <img src="https://picsum.photos/900/400?3">
+                <p>Secure blockchain storage and encryption vault.</p>
+                <button class="btn" onclick="scrollToSection('products')">Explore</button>
+            </div>
+
         </div>
 
-        <div class="product-card">
-            <h3>Quantum Cloud</h3>
-            <p>Next-gen infrastructure leveraging modern computing.</p>
-            <button class="btn">Explore</button>
-        </div>
-
-        <div class="product-card">
-            <h3>Blockchain Vault</h3>
-            <p>Secure decentralized storage with encryption.</p>
-            <button class="btn">Explore</button>
-        </div>
+        <div class="arrow left" onclick="prevSlide()">‹</div>
+        <div class="arrow right" onclick="nextSlide()">›</div>
     </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
     <h2 class="section-title">About</h2>
-    <p style="max-width:600px; opacity:0.7;">
-        I'm a modern developer focusing on creating elegant digital experiences
-        with clean UI and smooth interactions.
-    </p>
+    <div class="about">
+        Creative developer focused on modern UI design and smooth digital experiences.
+    </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
     <h2 class="section-title">Skills</h2>
     <div class="skills-grid">
-        <div class="skill-box">Frontend</div>
-        <div class="skill-box">Backend</div>
-        <div class="skill-box">UI/UX</div>
+        <div class="skill-box">Frontend Development</div>
+        <div class="skill-box">Backend Development</div>
+        <div class="skill-box">UI / UX Design</div>
         <div class="skill-box">Cloud & DevOps</div>
         <div class="skill-box">AI & ML</div>
         <div class="skill-box">Blockchain</div>
@@ -260,15 +260,33 @@ section{
 <!-- CONTACT -->
 <section id="contact">
     <h2 class="section-title">Contact</h2>
-    <div class="contact-box">
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <textarea rows="4" placeholder="Message"></textarea>
-        <button class="btn">Send Message</button>
+    <div class="contact-info">
+        Email: yourmail@email.com <br>
+        Phone: +84 123 456 789 <br>
+        Location: Vietnam
     </div>
 </section>
 
+<footer>
+    © 2026 PRISM Portfolio — All Rights Reserved
+</footer>
+
 <script>
+let index = 0;
+const slides = document.getElementById("slides");
+
+function nextSlide(){
+    index++;
+    if(index > 2) index = 0;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+function prevSlide(){
+    index--;
+    if(index < 0) index = 2;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
 function scrollToSection(id){
     document.getElementById(id).scrollIntoView({
         behavior:'smooth'
