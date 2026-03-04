@@ -3,295 +3,319 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modern Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Futuristic Tech</title>
 
 <style>
+
+/* ===== RESET ===== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-    scroll-behavior:smooth;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body{
-    background:#0e101c;
+    background:#0c0c14;
     color:white;
+    overflow-x:hidden;
+    padding-top:90px;
 }
 
-/* ================= NAVBAR ================= */
-
-nav{
+/* ===== NAVBAR ===== */
+.navbar{
     position:fixed;
-    top:20px;
+    top:10px;
     left:50%;
     transform:translateX(-50%);
     width:85%;
-    padding:15px 40px;
+    padding:14px 40px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(20,22,40,0.8);
+
     backdrop-filter:blur(15px);
-    border-radius:50px;
+    background:linear-gradient(
+        145deg,
+        rgba(40,40,60,0.85),
+        rgba(25,25,40,0.85)
+    );
+
+    border-radius:14px;
+    border:1px solid rgba(140,100,255,0.2);
+
+    box-shadow:
+        0 0 20px rgba(120,80,255,0.25),
+        inset 0 0 15px rgba(255,255,255,0.05);
+
     z-index:1000;
 }
 
-.logo{
-    font-weight:700;
-    font-size:20px;
-    background:linear-gradient(90deg,#7f5af0,#2cb67d);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-nav ul{
+.navbar ul{
     list-style:none;
     display:flex;
-    gap:35px;
+    gap:30px;
 }
 
-nav ul li{
-    cursor:pointer;
-    position:relative;
+.navbar a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
 }
 
-nav ul li:hover{
-    color:#7f5af0;
+.navbar a:hover{
+    color:#9d6bff;
 }
 
-/* ================= SECTIONS ================= */
-
-section{
-    padding:100px 10%;
-}
-
+/* ===== SECTION TITLE ===== */
 .section-title{
-    font-size:48px;
+    font-size:42px;
     text-align:center;
     margin-bottom:50px;
-    background:linear-gradient(90deg,#7f5af0,#2cb67d);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    font-weight:700;
 }
 
-/* ================= PRODUCTS SLIDER ================= */
+/* ===== PRODUCTS ===== */
+.products{
+    padding:80px 0;
+    text-align:center;
+}
 
-.slider{
+.carousel-container{
     position:relative;
-    max-width:900px;
-    margin:auto;
+    width:100%;
     overflow:hidden;
 }
 
-.slides{
+.carousel{
     display:flex;
-    transition:0.6s ease;
-}
-
-.slide{
-    min-width:100%;
-    display:flex;
-    flex-direction:column;
+    justify-content:center;
     align-items:center;
+    transition:transform 0.6s ease;
 }
 
-.slide img{
-    width:100%;
-    max-height:400px;
-    object-fit:cover;
+.card{
+    width:300px;
+    margin:0 20px;
+    padding:20px;
+
+    background:linear-gradient(
+        145deg,
+        rgba(40,40,60,0.85),
+        rgba(25,25,40,0.85)
+    );
+
+    backdrop-filter:blur(10px);
     border-radius:20px;
+    border:1px solid rgba(140,100,255,0.2);
+
+    box-shadow:
+        0 0 25px rgba(120,80,255,0.25),
+        inset 0 0 15px rgba(255,255,255,0.05);
+
+    transition:all 0.6s ease;
+    transform:scale(0.8);
+    opacity:0.5;
 }
 
-.slide p{
-    margin-top:20px;
-    opacity:0.7;
-    text-align:center;
-    max-width:600px;
+.card img{
+    width:100%;
+    border-radius:12px;
+    margin-bottom:15px;
 }
 
-.btn{
-    margin-top:20px;
-    padding:12px 25px;
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:14px;
+    margin-bottom:15px;
+    opacity:0.8;
+}
+
+.card.active{
+    transform:scale(1.1);
+    opacity:1;
+    z-index:2;
+}
+
+.explore-btn{
+    padding:10px 20px;
     border:none;
-    border-radius:30px;
-    background:linear-gradient(90deg,#7f5af0,#2cb67d);
+    border-radius:20px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#8e5eff,#4da3ff);
     color:white;
-    cursor:pointer;
     transition:0.3s;
 }
 
-.btn:hover{
+.explore-btn:hover{
     opacity:0.8;
 }
 
-/* arrows */
-
-.arrow{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:30px;
-    cursor:pointer;
-    padding:10px;
-    background:rgba(255,255,255,0.1);
-    border-radius:50%;
+/* ===== CAROUSEL CONTROLS ===== */
+.carousel-controls{
+    margin-top:30px;
 }
 
-.left{ left:10px; }
-.right{ right:10px; }
+.carousel-controls button{
+    background:rgba(120,80,255,0.3);
+    border:none;
+    padding:12px 20px;
+    font-size:20px;
+    margin:0 10px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+    color:white;
+}
 
-/* ================= ABOUT ================= */
+.carousel-controls button:hover{
+    background:rgba(120,80,255,0.6);
+}
 
-.about{
+/* ===== CONTACTS ===== */
+.contacts{
+    padding:60px 0;
     text-align:center;
-    max-width:700px;
+}
+
+.contacts-box{
+    width:60%;
     margin:auto;
-    opacity:0.8;
-}
-
-/* ================= SKILLS ================= */
-
-.skills-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-}
-
-.skill-box{
-    background:rgba(255,255,255,0.05);
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-    transition:0.3s;
-}
-
-.skill-box:hover{
-    box-shadow:0 0 20px rgba(127,90,240,0.5);
-    transform:translateY(-5px);
-}
-
-/* ================= CONTACT ================= */
-
-.contact-info{
-    text-align:center;
-    line-height:2;
-    opacity:0.8;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    text-align:center;
     padding:30px;
-    background:#111325;
-    margin-top:60px;
-    opacity:0.6;
+
+    background:linear-gradient(
+        145deg,
+        rgba(40,40,60,0.85),
+        rgba(25,25,40,0.85)
+    );
+
+    border-radius:20px;
+    border:1px solid rgba(140,100,255,0.2);
+
+    box-shadow:
+        0 0 25px rgba(120,80,255,0.25),
+        inset 0 0 15px rgba(255,255,255,0.05);
 }
+
+.contacts-box p{
+    margin:10px 0;
+    opacity:0.9;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    margin-top:80px;
+    padding:20px;
+    text-align:center;
+    background:rgba(20,20,30,0.8);
+    border-top:1px solid rgba(140,100,255,0.2);
+}
+
 </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">PRISM</div>
+<!-- ===== NAVBAR ===== -->
+<div class="navbar">
+    <div class="logo">FUTURE TECH</div>
     <ul>
-        <li onclick="scrollToSection('products')">Products</li>
-        <li onclick="scrollToSection('about')">About</li>
-        <li onclick="scrollToSection('skills')">Skill</li>
-        <li onclick="scrollToSection('contact')">Contact</li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contacts">Contacts</a></li>
     </ul>
-</nav>
+</div>
 
-<!-- PRODUCTS -->
-<section id="products">
-    <h2 class="section-title">Products</h2>
+<!-- ===== PRODUCTS ===== -->
+<section class="products" id="products">
+    <h2 class="section-title">PRODUCTS</h2>
 
-    <div class="slider">
-        <div class="slides" id="slides">
+    <div class="carousel-container">
+        <div class="carousel">
 
-            <div class="slide">
-                <img src="https://picsum.photos/900/400?1">
-                <p>Modern AI solution for data prediction and analytics.</p>
-                <button class="btn" onclick="scrollToSection('products')">Explore</button>
+            <div class="card active">
+                <img src="https://picsum.photos/400/250?1">
+                <h3>QUANTUM CLOUD</h3>
+                <p>Next-gen cloud infrastructure.</p>
+                <button class="explore-btn">Explore</button>
             </div>
 
-            <div class="slide">
-                <img src="https://picsum.photos/900/400?2">
-                <p>Quantum powered cloud infrastructure system.</p>
-                <button class="btn" onclick="scrollToSection('products')">Explore</button>
+            <div class="card">
+                <img src="https://picsum.photos/400/250?2">
+                <h3>NEURAL NETWORK</h3>
+                <p>AI predictive analytics system.</p>
+                <button class="explore-btn">Explore</button>
             </div>
 
-            <div class="slide">
-                <img src="https://picsum.photos/900/400?3">
-                <p>Secure blockchain storage and encryption vault.</p>
-                <button class="btn" onclick="scrollToSection('products')">Explore</button>
+            <div class="card">
+                <img src="https://picsum.photos/400/250?3">
+                <h3>BLOCKCHAIN VAULT</h3>
+                <p>Secure decentralized storage.</p>
+                <button class="explore-btn">Explore</button>
             </div>
 
         </div>
 
-        <div class="arrow left" onclick="prevSlide()">‹</div>
-        <div class="arrow right" onclick="nextSlide()">›</div>
+        <div class="carousel-controls">
+            <button id="prev">&#10094;</button>
+            <button id="next">&#10095;</button>
+        </div>
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-    <h2 class="section-title">About</h2>
-    <div class="about">
-        Creative developer focused on modern UI design and smooth digital experiences.
+<!-- ===== CONTACTS ===== -->
+<section class="contacts" id="contacts">
+    <h2 class="section-title">CONTACTS</h2>
+    <div class="contacts-box">
+        <p>Email: contact@futuretech.com</p>
+        <p>Phone: +84 123 456 789</p>
+        <p>Address: Ho Chi Minh City, Vietnam</p>
     </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-box">Frontend Development</div>
-        <div class="skill-box">Backend Development</div>
-        <div class="skill-box">UI / UX Design</div>
-        <div class="skill-box">Cloud & DevOps</div>
-        <div class="skill-box">AI & ML</div>
-        <div class="skill-box">Blockchain</div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact-info">
-        Email: yourmail@email.com <br>
-        Phone: +84 123 456 789 <br>
-        Location: Vietnam
-    </div>
-</section>
-
+<!-- ===== FOOTER ===== -->
 <footer>
-    © 2026 PRISM Portfolio — All Rights Reserved
+    © 2026 FUTURE TECH. All rights reserved.
 </footer>
 
 <script>
-let index = 0;
-const slides = document.getElementById("slides");
 
-function nextSlide(){
-    index++;
-    if(index > 2) index = 0;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-}
+/* ===== CAROUSEL JS ===== */
+const cards = document.querySelectorAll(".card");
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
 
-function prevSlide(){
-    index--;
-    if(index < 0) index = 2;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-}
+let current = 0;
 
-function scrollToSection(id){
-    document.getElementById(id).scrollIntoView({
-        behavior:'smooth'
+function updateCarousel(){
+    cards.forEach((card,index)=>{
+        card.classList.remove("active");
+        if(index===current){
+            card.classList.add("active");
+        }
     });
+
+    const offset = -current * 340;
+    document.querySelector(".carousel").style.transform = 
+        `translateX(${offset}px)`;
 }
+
+nextBtn.addEventListener("click",()=>{
+    current++;
+    if(current>=cards.length) current=0;
+    updateCarousel();
+});
+
+prevBtn.addEventListener("click",()=>{
+    current--;
+    if(current<0) current=cards.length-1;
+    updateCarousel();
+});
+
+updateCarousel();
+
 </script>
 
 </body>
