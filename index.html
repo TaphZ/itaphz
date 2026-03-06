@@ -1,335 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Itaphz - Portfolio</title>
+<title>Chúc mừng 8/3</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== RESET ===== */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-html{
-    scroll-behavior: smooth;
-}
-
 body{
-    background:linear-gradient(135deg,#f5f7fa,#e4ecff);
-    color:#222;
-    overflow-x:hidden;
-    padding-top:80px;
-}
-
-/* ===== NAVBAR ===== */
-.navbar{
-    position:fixed;
-    top:10px;
-    left:50%;
-    transform:translateX(-50%);
-    width:80%;
-    padding:14px 40px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    background:rgba(255,255,255,0.7);
-    backdrop-filter:blur(12px);
-
-    border-radius:14px;
-    box-shadow:0 5px 25px rgba(0,0,0,0.08);
-
-    z-index:1000;
-}
-
-.navbar ul{
-    list-style:none;
-    display:flex;
-    gap:30px;
-}
-
-.navbar a{
-    text-decoration:none;
-    color:#333;
-    font-weight:500;
-    transition:0.3s;
-}
-
-.navbar a:hover{
-    color:#5b7cff;
-}
-
-/* ===== SECTION ===== */
-section{
-    padding:80px 10%;
-}
-
-.section-title{
-    font-size:38px;
-    text-align:center;
-    margin-bottom:50px;
-    font-weight:700;
-}
-
-/* ===== PRODUCTS CAROUSEL ===== */
-.carousel-wrapper{
-    position:relative;
-    height:420px;
+    margin:0;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+    font-family:'Poppins', sans-serif;
+    overflow:hidden;
 }
 
-.card{
-    position:absolute;
-    width:320px;
-    padding:20px;
-    background:white;
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.1);
+.container{
     text-align:center;
-    transition:all 0.6s ease;
-}
-
-.card img{
-    width:100%;
-    border-radius:12px;
-    margin-bottom:15px;
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-.card p{
-    font-size:14px;
-    margin-bottom:15px;
-    color:#666;
-}
-
-.explore-btn{
-    padding:10px 20px;
-    border:none;
-    border-radius:20px;
-    background:linear-gradient(90deg,#6a8dff,#9c6bff);
-    color:white;
-    cursor:pointer;
-}
-
-/* POSITION STATES */
-.center{
-    transform:translateX(0) scale(1.1);
-    z-index:3;
-}
-
-.left{
-    transform:translateX(-380px) scale(0.85);
-    opacity:0.6;
     z-index:2;
 }
 
-.right{
-    transform:translateX(380px) scale(0.85);
-    opacity:0.6;
-    z-index:2;
+.title{
+    font-family:'Pacifico', cursive;
+    font-size:60px;
+
+    background:linear-gradient(45deg,#ff4d6d,#ff9a9e,#ff6ec7);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:fadeIn 2s ease;
 }
 
-.hidden{
-    opacity:0;
-    z-index:1;
-}
-
-/* ARROWS */
-.arrow{
-    position:absolute;
-    bottom:-60px;
-    font-size:28px;
-    cursor:pointer;
-    background:white;
-    width:45px;
-    height:45px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:50%;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.arrow:hover{
-    background:#6a8dff;
+.message{
+    font-size:24px;
+    margin-top:15px;
     color:white;
+    text-shadow:0 0 10px rgba(255,255,255,0.7);
+    animation:fadeIn 3s ease;
 }
 
-.arrow-left{
-    left:45%;
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-.arrow-right{
-    right:45%;
+.heart{
+    position:absolute;
+    color:#ff4d6d;
+    font-size:22px;
+    animation:fall linear forwards;
 }
 
-/* ===== ABOUT ===== */
-.about{
-    text-align:center;
-    max-width:800px;
-    margin:auto;
-    color:#555;
-    line-height:1.6;
-}
-
-/* ===== SKILLS ===== */
-.skills{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    flex-wrap:wrap;
-}
-
-.skill-box{
-    background:white;
-    padding:25px;
-    width:220px;
-    border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    text-align:center;
-}
-
-/* ===== CONTACT ===== */
-.contact{
-    text-align:center;
-    color:#555;
-}
-
-/* ===== FOOTER ===== */
-footer{
-    text-align:center;
-    padding:20px;
-    background:white;
-    margin-top:60px;
-    box-shadow:0 -5px 20px rgba(0,0,0,0.05);
+@keyframes fall{
+    from{
+        transform:translateY(-10vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
 }
 
 </style>
 </head>
+
 <body>
 
-<div class="navbar">
-    <div><strong>Huynh Thanh Phat</strong></div>
-    <ul>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#about">About me</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<div class="container">
+    <div class="title">Nhân ngày Quốc Tế Phụ Nữ 8/3 🌸</div>
+    <div class="message">
+        Chúc bạn luôn vui vẻ, xinh đẹp và hạnh phúc mỗi ngày ❤️
+    </div>
 </div>
-
-<!-- PRODUCTS -->
-<section id="products">
-    <h2 class="section-title">Products</h2>
-
-    <div class="carousel-wrapper">
-        <div class="card center">
-            <img src="images/product_1.jpg">
-            <h3>Project One</h3>
-            <p>3D Environment Design</p>
-            <button class="explore-btn">Explore</button>
-        </div>
-
-        <div class="card right">
-            <img src="images/product_2.jpg">
-            <h3>Project Two</h3>
-            <p>Character Modeling</p>
-            <button class="explore-btn">Explore</button>
-        </div>
-
-        <div class="card left">
-            <img src="images/product_3.jpg">
-            <h3>Project Three</h3>
-            <p>Animation & Motion</p>
-            <button class="explore-btn">Explore</button>
-        </div>
-
-        <div class="arrow arrow-left" onclick="prev()">❮</div>
-        <div class="arrow arrow-right" onclick="next()">❯</div>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-    <h2 class="section-title">About</h2>
-    <div class="about">
-        I am a creative 3D artist specializing in environment design and character modeling. 
-        My goal is to create immersive digital experiences with modern aesthetics.
-    </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-    <h2 class="section-title">Skill</h2>
-    <div class="skills">
-        <div class="skill-box">3D Modeling</div>
-        <div class="skill-box">Animation</div>
-        <div class="skill-box">Game Environment</div>
-        <div class="skill-box">UI / UX Basic</div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact">
-        Email: huynhthanhphat20082005@gmail.com <br>
-        Phone: 0824550059
-    </div>
-</section>
-
-<footer>
-    © 2026 Itaphz - Huynh Thanh Phat
-</footer>
 
 <script>
 
-const cards = document.querySelectorAll(".card");
-let current = 0;
+function createHeart(){
 
-function updatePositions(){
-    cards.forEach((card,i)=>{
-        card.className="card";
-        if(i===current){
-            card.classList.add("center");
-        }else if(i=== (current+1)%cards.length){
-            card.classList.add("right");
-        }else if(i=== (current-1+cards.length)%cards.length){
-            card.classList.add("left");
-        }else{
-            card.classList.add("hidden");
-        }
-    });
+    const heart = document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+
 }
 
-function next(){
-    current=(current+1)%cards.length;
-    updatePositions();
-}
-
-function prev(){
-    current=(current-1+cards.length)%cards.length;
-    updatePositions();
-}
-
-updatePositions();
+setInterval(createHeart,300);
 
 </script>
 
 </body>
 </html>
-
-
-
-
